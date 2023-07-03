@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AMSlider: UIView {
+class CustomAMSlider: UIView {
     private var cornerRadius        : CGFloat = 0
     private var minValue            : Double = 0
     private var maxValue            : Double = 1
