@@ -36,7 +36,7 @@ open class CustomAMSlider: UIView {
         commonInit()
     }
     
-    init(cornerRadius: CGFloat = 0, minValue: Double = 0, maxValue: Double = 1, width: Double = UIScreen.main.bounds.width, beginTapClosure: (() -> ())? = nil, endTapClosure: (() -> ())? = nil) {
+    open init(cornerRadius: CGFloat = 0, minValue: Double = 0, maxValue: Double = 1, width: Double = UIScreen.main.bounds.width, beginTapClosure: (() -> ())? = nil, endTapClosure: (() -> ())? = nil) {
         super.init(frame: .zero)
         self.cornerRadius    = cornerRadius
         self.minValue        = minValue
@@ -67,7 +67,7 @@ open class CustomAMSlider: UIView {
         self.layoutIfNeeded()
     }
     
-    func setValue(value: Double) {
+    open func setValue(value: Double) {
         durationConstraints[3].isActive = false
         
         self.value = value
@@ -77,18 +77,18 @@ open class CustomAMSlider: UIView {
         self.layoutIfNeeded()
     }
     
-    func setTempValue(value: Double) {
+    private func setTempValue(value: Double) {
         durationConstraints[3].isActive = false
         durationConstraints[3] = durationAMSlider.widthAnchor.constraint(equalToConstant: value * width)
         durationConstraints[3].isActive = true
         self.layoutIfNeeded()
     }
     
-    func setTintColor(tintColor: UIColor) {
+    open func setTintColor(tintColor: UIColor) {
         durationAMSlider.backgroundColor = tintColor
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    private override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let x = (touch.location(in: self).x) / width
             self.beginX = x
@@ -97,7 +97,7 @@ open class CustomAMSlider: UIView {
         }
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    private override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let x = (touch.location(in: self).x) / width
             let newDuration = (x - beginX) + self.value
@@ -107,7 +107,7 @@ open class CustomAMSlider: UIView {
         }
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    private override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let x = (touch.location(in: self).x) / width
             let newDuration = (x - beginX) + self.value
