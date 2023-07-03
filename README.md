@@ -28,8 +28,8 @@ lazy var constraints: [NSLayoutConstraint] = {
     ]
 }()
 
-lazy var amSlider: AMSlider = {
-    let slider = AMSlider(
+lazy var amSlider: CustomAMSlider = {
+    let slider = CustomAMSlider(
         cornerRadius: 5,
         width: UIScreen.main.bounds.width - 20
     )
