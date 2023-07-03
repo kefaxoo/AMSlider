@@ -17,8 +17,8 @@ open class CustomAMSlider: UIView {
     private var beginX              : Double = 0
     private var touchType           : TouchType = .none
     
-    var beginTapClosure: (() -> ())?
-    var endTapClosure  : (() -> ())?
+    open var beginTapClosure: (() -> ())?
+    open var endTapClosure  : (() -> ())?
     
     fileprivate lazy var durationAMSlider: DurationAMSlider = {
         let durationAMSlider = DurationAMSlider(cornerRadius: self.cornerRadius)
