@@ -23,6 +23,7 @@ open class CustomAMSlider: UIView {
     fileprivate lazy var durationAMSlider: DurationAMSlider = {
         let durationAMSlider = DurationAMSlider(cornerRadius: self.cornerRadius)
         durationAMSlider.backgroundColor = UIColor.systemBlue
+        durationAMSlider.delegate = self
         return durationAMSlider
     }()
     
@@ -122,5 +123,19 @@ open class CustomAMSlider: UIView {
     
     open func getValue() -> Double {
         return self.value
+    }
+}
+
+extension CustomAMSlider: DurationAMSliderDelegate {
+    func touchesBegin(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.touchesBegan(touches, with: event)
+    }
+    
+    func touchesMove(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.touchesMoved(touches, with: event)
+    }
+    
+    func touchesEnd(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.touchesEnded(touches, with: event)
     }
 }
