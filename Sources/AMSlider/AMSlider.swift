@@ -11,7 +11,7 @@ open class CustomAMSlider: UIView {
     private var cornerRadius        : CGFloat = 0
     private var minValue            : Double = 0
     private var maxValue            : Double = 1
-    var width                       : Double = UIScreen.main.bounds.width
+    open var width                  : Double = UIScreen.main.bounds.width
     private var durationConstraints = [NSLayoutConstraint]()
     private var value               : Double = 0
     private var beginX              : Double = 0
